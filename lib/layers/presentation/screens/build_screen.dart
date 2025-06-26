@@ -3,11 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
-import 'package:matule/layers/presentation/screens/home_screen.dart';
-import 'package:matule/layers/presentation/shared/ui/async_drawer_controller.dart';
-import 'package:matule/layers/presentation/screens/home.dart';
+import 'package:matule/core/helpers/brand_colors.dart';
+import 'package:matule/layers/presentation/shared/ui/drawer_menu.dart';
 
-// ignore: must_be_immutable
 class BuildScreen extends StatefulWidget {
   const BuildScreen({super.key, required this.navigationShell});
   final StatefulNavigationShell navigationShell;
@@ -26,9 +24,8 @@ class _BuildScreenState extends State<BuildScreen> {
     return ZoomDrawer(
       borderRadius: 24.0,
       showShadow: false,
-      menuBackgroundColor: Color.fromRGBO(72, 178, 231, 1),
       angle: -3.0,
-      menuScreen: const HomeScreen(),
+      menuScreen: const DrawerMenu(),
       mainScreen: Scaffold(
         body: Stack(
           children: [
@@ -38,9 +35,8 @@ class _BuildScreenState extends State<BuildScreen> {
               left: 0,
               right: 0,
               child: Container(
-                height: 110.0,
+                height: 102.0,
                 width: double.maxFinite,
-                color: Color.fromRGBO(247, 247, 249, 1),
                 child: Stack(
                   children: [
                     Positioned(
@@ -65,8 +61,8 @@ class _BuildScreenState extends State<BuildScreen> {
                             iconSize: 24.0,
                             color:
                                 widget.navigationShell.currentIndex == 0
-                                    ? Color.fromRGBO(72, 178, 231, 1)
-                                    : Color.fromRGBO(43, 43, 43, 1),
+                                    ? BrandColors.accent
+                                    : BrandColors.text,
                             icon: const Icon(CupertinoIcons.home),
                           ),
                           IconButton(
@@ -74,8 +70,8 @@ class _BuildScreenState extends State<BuildScreen> {
                             iconSize: 24.0,
                             color:
                                 widget.navigationShell.currentIndex == 1
-                                    ? Color.fromRGBO(72, 178, 231, 1)
-                                    : Color.fromRGBO(43, 43, 43, 1),
+                                    ? BrandColors.accent
+                                    : BrandColors.text,
                             icon: const Icon(CupertinoIcons.heart),
                           ),
                           const SizedBox(width: 72.0, height: 24.0),
@@ -84,8 +80,8 @@ class _BuildScreenState extends State<BuildScreen> {
                             iconSize: 24.0,
                             color:
                                 widget.navigationShell.currentIndex == 2
-                                    ? Color.fromRGBO(72, 178, 231, 1)
-                                    : Color.fromRGBO(43, 43, 43, 1),
+                                    ? BrandColors.accent
+                                    : BrandColors.text,
                             icon: const Icon(Icons.notifications_outlined),
                           ),
                           IconButton(
@@ -93,8 +89,8 @@ class _BuildScreenState extends State<BuildScreen> {
                             iconSize: 24.0,
                             color:
                                 widget.navigationShell.currentIndex == 3
-                                    ? Color.fromRGBO(72, 178, 231, 1)
-                                    : Color.fromRGBO(43, 43, 43, 1),
+                                    ? BrandColors.accent
+                                    : BrandColors.text,
                             icon: const Icon(CupertinoIcons.person),
                           ),
                         ],
@@ -108,12 +104,11 @@ class _BuildScreenState extends State<BuildScreen> {
                         child: FloatingActionButton(
                           backgroundColor: Color.fromRGBO(72, 178, 231, 1),
                           shape: RoundedRectangleBorder(
-                            
                             borderRadius: BorderRadius.circular(100.0),
                           ),
                           elevation: 12.0,
-                          child:  Icon(CupertinoIcons.bag, size: 22.0, color: Color.fromRGBO(255, 255, 255, 1),),
-                          onPressed: () => _navigationOnIndex(4),
+                          child: const Icon(CupertinoIcons.bag, size: 24.0),
+                          onPressed: () {},
                         ),
                       ),
                     ),
@@ -123,7 +118,7 @@ class _BuildScreenState extends State<BuildScreen> {
             ),
           ],
         ),
-        backgroundColor: Color.fromRGBO(247, 247, 249, 1),
+        backgroundColor: BrandColors.background,
       ),
     );
   }

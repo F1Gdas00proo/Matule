@@ -10,7 +10,7 @@ void main() async {
   runApp(
     EasyLocalization(
       supportedLocales: [Locale('en'), Locale('ru')],
-      path:'assets/localization',
+      path: 'assets/localization',
       fallbackLocale: Locale('en'),
       child: App(),
     ),
@@ -22,12 +22,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final RouterConfigGO router = new RouterConfigGO();
+    final RouterConfigGO _router = new RouterConfigGO();
     return MaterialApp.router(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      title: 'Matule',
+      title: 'Flutter_App',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textTheme: GoogleFonts.latoTextTheme(),
@@ -35,7 +35,7 @@ class App extends StatelessWidget {
           seedColor: const Color.fromARGB(255, 255, 255, 255),
         ),
       ),
-      routerConfig: router.router,
+      routerConfig: _router.router,
     );
   }
 }

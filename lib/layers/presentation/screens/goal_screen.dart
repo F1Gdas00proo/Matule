@@ -4,16 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:matule/core/helpers/brand_colors.dart';
-import 'package:matule/layers/presentation/shared/ui/card_screen.dart';
 
-class PopularScreen extends StatefulWidget {
-  const PopularScreen({super.key});
+class ProduktScreen extends StatefulWidget {
+  const ProduktScreen({super.key});
 
   @override
-  State<PopularScreen> createState() => _PopularScreenState();
+  State<ProduktScreen> createState() => _ProduktScreenState();
 }
 
-class _PopularScreenState extends State<PopularScreen> {
+class _ProduktScreenState extends State<ProduktScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -35,12 +34,15 @@ class _PopularScreenState extends State<PopularScreen> {
                   icon: Icon(CupertinoIcons.back, size: 20),
                 ),
               ),
-              Text(
-                context.tr('Избранное'),
-                style: GoogleFonts.roboto(
-                  fontSize: 20,
-                  color: BrandColors.text,
-                  fontWeight: FontWeight.w600,
+
+              Positioned(
+                left: 300,
+                top: 100,
+                right: 100,
+                child: Container(
+                  height: 210,
+                  width: 200,
+                  child: Image.asset('assets/pivo.png', fit: BoxFit.contain),
                 ),
               ),
               Container(
@@ -48,24 +50,15 @@ class _PopularScreenState extends State<PopularScreen> {
                   color: BrandColors.block,
                   borderRadius: BorderRadius.circular(100),
                 ),
-                alignment: Alignment.center,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(CupertinoIcons.heart, size: 20),
-                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                height: 50,
+                width: 300,
+                decoration: BoxDecoration(),
+                child: ListView(scrollDirection: Axis.horizontal, children: []),
               ),
             ],
-          ),
-          SizedBox(height: 20),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              childAspectRatio: 0.9,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              padding: EdgeInsets.all(6),
-              children: List.generate(16, (index) => CardScreen()),
-            ),
           ),
         ],
       ),

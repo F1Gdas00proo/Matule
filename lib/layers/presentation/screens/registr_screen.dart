@@ -1,25 +1,24 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:matule/core/helpers/brand_colors.dart';
+import 'package:go_router/go_router.dart';
+import 'package:matule/layers/presentation/shared/ui/check_screen.dart';
 import 'package:matule/layers/presentation/shared/ui/password_field.dart';
-import 'package:matule/layers/presentation/shared/ui/email_field.dart';
 
-import 'package:flutter/material.dart';
+class RegistrScreen extends StatefulWidget {
+  RegistrScreen({super.key});
+  bool _isChecked = false;
+  @override
+  State<RegistrScreen> createState() => _CreateUserState();
+}
 
-import 'package:flutter/material.dart';
-
-class SigninScreen extends StatelessWidget {
-  const SigninScreen({super.key});
-
+class _CreateUserState extends State<RegistrScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: 40, left: 20, right: 20, bottom: 30),
+        padding: EdgeInsets.only(top: 80, left: 20, right: 20, bottom: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -30,39 +29,58 @@ class SigninScreen extends StatelessWidget {
                     color: Color.fromRGBO(245, 243, 243, 1),
                     borderRadius: BorderRadius.circular(100),
                   ),
-                  child: IconButton(
-                    onPressed: () {
-                      if (context.locale.languageCode == 'en') {
-                        context.setLocale(Locale('ru'));
-                      } else {
-                        context.setLocale(Locale('en'));
-                      }
-                    },
-                    icon: Icon(CupertinoIcons.book),
-                  ),
                 ),
               ],
             ),
             SizedBox(height: 15),
             Text(
-              context.tr('Привет!'),
+              context.tr('registration'),
               textAlign: TextAlign.center,
-              style: GoogleFonts.roboto(
+              style: TextStyle(
+                color: BrandColors.text,
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              context.tr(
-                'Заполните Свои данные или продолжите через социальные медиа',
-              ),
+              context.tr('fill_your_details2'),
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 15,
                 color: Color.fromARGB(204, 83, 83, 83),
               ),
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 20),
+            Text(
+              context.tr('your_name'),
+              style: TextStyle(
+                fontWeight: FontWeight.w500,
+                fontSize: 18.0,
+                color: BrandColors.text,
+              ),
+              textAlign: TextAlign.left,
+            ),
+            SizedBox(height: 12.0),
+            Container(
+              height: 48.0,
+              decoration: BoxDecoration(
+                color: BrandColors.background,
+                borderRadius: BorderRadius.circular(14.0),
+              ),
+              child: TextField(
+                autofocus: true,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.transparent,
+                  disabledBorder: InputBorder.none,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
             Text(
               context.tr('email'),
               style: TextStyle(
@@ -76,14 +94,25 @@ class SigninScreen extends StatelessWidget {
             Container(
               height: 48.0,
               decoration: BoxDecoration(
-                color: Color.fromRGBO(247, 247, 249, 1),
+                color: BrandColors.background,
                 borderRadius: BorderRadius.circular(14.0),
               ),
-              child: EmailField(),
+              child: TextField(
+                autofocus: true,
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: Colors.transparent,
+                  disabledBorder: InputBorder.none,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(100),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
             ),
             SizedBox(height: 20),
             Text(
-              context.tr('Пароль'),
+              context.tr('password'),
               style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: 18.0,
@@ -96,25 +125,19 @@ class SigninScreen extends StatelessWidget {
               height: 48.0,
               decoration: BoxDecoration(
                 color: BrandColors.background,
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(14.0),
               ),
               child: PasswordField(),
             ),
-            GestureDetector(
-              onTap: () => context.go('/da'),
-              child: Text(
-                context.tr('Востановить'),
-                style: TextStyle(fontSize: 15, color: BrandColors.subTextDark),
-                textAlign: TextAlign.right,
-              ),
-            ),
+            SizedBox(height: 20),
+            CheckBox(),
             SizedBox(height: 20),
             CupertinoButton(
-              borderRadius: BorderRadius.circular(100),
+              borderRadius: BorderRadius.circular(14),
               color: BrandColors.accent,
-              onPressed: () => context.go('/shope'),
+              onPressed: () => context.go('/mail'),
               child: Text(
-                context.tr('sign_in'),
+                context.tr('sign_up'),
                 style: TextStyle(color: BrandColors.TextLight),
               ),
             ),
@@ -126,14 +149,14 @@ class SigninScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Text(
-                        context.tr('Вы впервые?'),
+                        context.tr('already_have_account'),
                         style: TextStyle(color: BrandColors.text),
                       ),
                       SizedBox(width: 10),
                       GestureDetector(
-                        onTap: () => context.push('/aaa'),
+                        onTap: () => context.go('/visol'),
                         child: Text(
-                          context.tr('Создать пользователя'),
+                          context.tr('sign_in'),
                           style: TextStyle(color: BrandColors.subTextDark),
                         ),
                       ),

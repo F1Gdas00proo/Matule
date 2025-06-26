@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeButton extends StatelessWidget {
-  const HomeButton({super.key});
+class TennisButton extends StatelessWidget {
+  const TennisButton({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +14,7 @@ class HomeButton extends StatelessWidget {
         color: (const Color.fromARGB(255, 242, 242, 244)),
       ),
       child: Text(
-        'ВСЕ',
+        'Tennis',
         style: TextStyle(
           fontWeight: FontWeight.w400,
           color: CupertinoColors.black,
