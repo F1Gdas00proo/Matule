@@ -7,9 +7,9 @@ import 'package:matule/layers/presentation/screens/email_screen.dart';
 import 'package:matule/layers/presentation/screens/no_password_srceen.dart';
 
 import 'package:matule/layers/presentation/screens/notifications_screen.dart';
-import 'package:matule/layers/presentation/screens/second_screen.dart';
+import 'package:matule/layers/presentation/screens/doublesinb_screen.dart';
 import 'package:matule/layers/presentation/screens/popular_screen.dart';
-import 'package:matule/layers/presentation/screens/goal_screen.dart';
+import 'package:matule/layers/presentation/screens/produkt_screen.dart';
 import 'package:matule/layers/presentation/screens/profile_screen.dart';
 import 'package:matule/layers/presentation/screens/registr_screen.dart';
 import 'package:matule/layers/presentation/screens/screen1.dart';

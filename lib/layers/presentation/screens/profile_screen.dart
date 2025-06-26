@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:matule/core/helpers/brand_colors.dart';
-import 'package:matule/layers/presentation/screens/second_screen.dart';
+import 'package:matule/layers/presentation/screens/doublesinb_screen.dart';
 import 'package:matule/layers/presentation/shared/ui/email_field.dart';
 
 class ProfileScreen extends StatefulWidget {

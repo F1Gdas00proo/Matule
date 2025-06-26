@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:matule/core/helpers/brand_colors.dart';
 import 'package:go_router/go_router.dart';
-import 'package:matule/layers/presentation/shared/ui/check_screen.dart';
+import 'package:matule/layers/presentation/shared/ui/check_box.dart';
 import 'package:matule/layers/presentation/shared/ui/password_field.dart';
 
 class RegistrScreen extends StatefulWidget {

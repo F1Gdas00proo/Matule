@@ -8,7 +8,7 @@ import 'package:matule/layers/presentation/shared/ui/Outdoor_button.dart';
 import 'package:matule/layers/presentation/shared/ui/card_screen.dart';
 import 'package:matule/layers/presentation/shared/ui/home_button.dart';
 import 'package:matule/layers/presentation/shared/ui/card_screen.dart';
-import 'package:matule/layers/presentation/shared/ui/zavtra_screen.dart';
+
 
 class PetuhScreen extends StatefulWidget {
   const PetuhScreen({super.key});
@@ -79,7 +79,6 @@ class _PetuhScreenState extends State<PetuhScreen> {
               decoration: BoxDecoration(),
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [HomeButton(), OutdoorButton(), TennisButton()],
               ),
             ),
             GestureDetector(

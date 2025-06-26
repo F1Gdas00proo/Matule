@@ -1,3 +1,13 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:matule/core/helpers/brand_colors.dart';
+import 'package:matule/layers/presentation/shared/ui/card_screen.dart';
+
+import 'package:flutter/material.dart';
+
 import 'package:flutter/material.dart';
 
 class BasketScreen extends StatelessWidget {
@@ -12,19 +22,15 @@ class CartItem {
   final int quantity;
   final double price;
 
-  CartItem({
-    required this.name,
-    required this.quantity,
-    required this.price,
-  });
+  CartItem({required this.name, required this.quantity, required this.price});
 }
 
 class CartScreen extends StatefulWidget {
   @override
-_StateCartScreen createState() => _StateCartScreen();
+  _CartScreenState createState() => _CartScreenState();
 }
 
-class _StateCartScreen extends State<CartScreen> {
+class _CartScreenState extends State<CartScreen> {
   List<CartItem> cartItems = [
     CartItem(name: 'Товар 1', quantity: 2, price: 500.0),
     CartItem(name: 'Товар 2', quantity: 1, price: 1500.0),
@@ -41,7 +47,6 @@ class _StateCartScreen extends State<CartScreen> {
       appBar: AppBar(title: Text('Корзина')),
       body: Column(
         children: [
-
           Expanded(
             child: ListView.builder(
               itemCount: cartItems.length,
@@ -50,8 +55,12 @@ class _StateCartScreen extends State<CartScreen> {
                 return ListTile(
                   leading: CircleAvatar(child: Text('${index + 1}')),
                   title: Text(item.name),
-                  subtitle: Text('Количество: ${item.quantity} × ${item.price.toStringAsFixed(2)} ₽'),
-                  trailing: Text('${(item.price * item.quantity).toStringAsFixed(2)} ₽'),
+                  subtitle: Text(
+                    'Количество: ${item.quantity} x ${item.price.toStringAsFixed(2)} ₽',
+                  ),
+                  trailing: Text(
+                    '${(item.price * item.quantity).toStringAsFixed(2)} ₽',
+                  ),
                 );
               },
             ),
@@ -62,8 +71,14 @@ class _StateCartScreen extends State<CartScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Итого:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-                Text('${totalPrice.toStringAsFixed(2)} ₽', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                Text(
+                  'Итого:',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  '${totalPrice.toStringAsFixed(2)} ₽',
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
               ],
             ),
           ),
@@ -72,10 +87,14 @@ class _StateCartScreen extends State<CartScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: ElevatedButton(
               onPressed: () {
-                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Заказ оформлен!')));
+                ScaffoldMessenger.of(
+                  context,
+                ).showSnackBar(SnackBar(content: Text('Заказ оформлен!')));
               },
               child: Text('Оформить заказ'),
-              style: ElevatedButton.styleFrom(minimumSize: Size(double.infinity, 50)),
+              style: ElevatedButton.styleFrom(
+                minimumSize: Size(double.infinity, 50),
+              ),
             ),
           ),
           SizedBox(height: 20),
